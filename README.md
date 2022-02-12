@@ -28,4 +28,15 @@
     python manage.py startapp accounts
 * "accounts" is app name
 
-## 6. 
+## 6. In setting.py inside project :
+* add following lines in stiings.py file in Installed apps :
+
+        INSTALLED_APPS = [
+            ...,
+
+            'rest_framework',
+            'djoser',
+            'accounts',
+
+            ...,
+        ]
