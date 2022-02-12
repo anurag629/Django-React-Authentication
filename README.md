@@ -86,3 +86,29 @@
 * add AUTH_USER_MODEL at the end of settings.py file of project auth_system :
 
         AUTH_USER_MODEL = 'accounts.UserAccount'
+
+## 8. Now we going to setup djoser setup :
+* add following urls in the urls.py of project :
+
+       
+        from django.contrib import admin
+        from django.urls import path, include, re_path
+        from django.views.generic import TemplateView
+
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('auth/', include('djoser.urls')),
+            path('auth/', include('djoser.urls.jwt')),
+
+            re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
+        ]
+
+* set for email for conferming account and password reset :
+
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_PORT = 587
+        EMAIL_HOST_USER = 'youremail@gmail.com'
+        EMAIL_HOST_PASSWORD = 'your password'
+        EMAIL_USE_TLS = True
+
