@@ -117,3 +117,35 @@
         'DIRS': [os.path.join(BASE_DIR, 'build')],
 
 * in settings.py file configure static files like this :
+
+        STATIC_URL = 'static/'
+        STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'build/static')
+        ]
+        STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+* setup djoser for api authentication :
+
+        REST_FRAMEWORK = {
+            'DEFAULT_AUTHENTICTON_CLASSES': (
+                'rest_framework_simplejwt.authentication.JWTAuthentication',
+            ),
+        }
+
+        SIMPLE_JWT = {
+            'AUTH_HEADER_TYPES': ('JWT')
+        }
+
+        DJOSER = {
+            'LOGIN_FIELD': 'email'
+            'USER_CREATE_PASSWORD_RETYPE': True,
+            'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+            'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+            'SEND_CONFERMATION_EMAIL' : True,
+            'SET_USERNAME_RETYPE': True,
+            'SET_PASSWORD_RETYPE': True,
+            'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+            'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+            'ACTIVATION_URL': 'activate/{uid}/{token}',
+            'SEND_ACTIVATION_EMAIL': True,
+        }
