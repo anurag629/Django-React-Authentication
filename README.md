@@ -149,3 +149,26 @@
             'ACTIVATION_URL': 'activate/{uid}/{token}',
             'SEND_ACTIVATION_EMAIL': True,
         }
+
+## 9. create serializers.py in accounts app and write below code on this :
+
+    from djoser.serializers import UserCreateSerializer
+    from django.contrib.auth import get_user_model
+
+    User = get_user_model()
+
+
+    class UserCreateSerializer(UserCreateSerializer):
+        class Meta(UserCreateSerializer.Meta):
+            model = User
+            fields = ('id', 'email', 'name', 'password')
+
+* now in settings.py file add new element in DJOSER dictionary :
+
+        'SERIALIZERS': {
+                'user_create': 'accounts.serializers.UserCreateSerializer',
+                'user': 'accounts.serializers.UserCreateSerializer',
+                'user_delete': 'accounts.serializers.UserDeleteSerializer',
+            }
+
+        
