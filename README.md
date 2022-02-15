@@ -112,3 +112,8 @@
         EMAIL_HOST_PASSWORD = 'your password'
         EMAIL_USE_TLS = True
 
+* add build folder to templates so when we do build in react it collect all files here
+
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
+
+* in settings.py file configure static files like this :
