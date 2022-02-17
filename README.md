@@ -171,4 +171,19 @@
                 'user_delete': 'accounts.serializers.UserDeleteSerializer',
             }
 
+## 10. Add the following in settings.py file :
+    REST_FRAMEWORK = {
+        ...,
+
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAuthenticated'
+        ],
+        
+        ...,
+    }
+
+
+# Frontend :->
+
+
         
