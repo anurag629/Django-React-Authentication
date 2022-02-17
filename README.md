@@ -185,5 +185,13 @@
 
 # Frontend :->
 
+## 1. Install following packages :
+    npm install --save axios
+    npm install --save react-router-dom
+    npm install --save redux
+    npm install --save redux-devtools-extension
+    npm install --save react-redux
+    npm install --save redux-thunk
+
 
         
