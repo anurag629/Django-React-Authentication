@@ -193,4 +193,10 @@
     npm install --save react-redux
     npm install --save redux-thunk
 
-
+## 2. Create following folder in src :
+    actions
+    assets
+    components
+    containers
+    reducers
+    hocs
