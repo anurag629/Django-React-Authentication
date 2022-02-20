@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
             localStorage.setItem('access', payload.access);
             return {
                 ...state,
-                isAuthenticated: True,
+                isAuthenticated: true,
                 access: payload.access,
                 refresh: payload.refresh
             }
