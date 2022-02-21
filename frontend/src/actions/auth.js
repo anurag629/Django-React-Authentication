@@ -55,4 +55,4 @@ export const login = (email, password) => async dispatch => {
             type: LOGIN_FAIL
         });
     }
-}
+};
