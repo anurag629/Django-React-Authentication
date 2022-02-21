@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'accounts',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,6 +76,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'auth_system.wsgi.application'
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Database
