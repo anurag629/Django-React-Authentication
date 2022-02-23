@@ -11,6 +11,7 @@ import axios from 'axios';
 
 
 export const checkAuthenticated = () => async dispatch => {
+    console.log("Before res ssss");
     if (localStorage.getItem('access')) {
         const config = {
             headers: {
@@ -22,9 +23,11 @@ export const checkAuthenticated = () => async dispatch => {
         const body = JSON.stringify({ token: localStorage.getItem('access') });
 
         try {
+            console.log("Before res");
             const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/jwt/verify/`, body, config);
-
-            if (res.data.code !== 'token_not_valid') {
+            console.log(res.data.code);
+            console.log("Hello");
+            if (res.data.code !== "token_not_valid") {
                 dispatch({
                     type: AUTHENTICATED_SUCCESS
                 });
