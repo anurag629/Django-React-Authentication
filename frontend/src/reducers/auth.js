@@ -5,7 +5,11 @@ import {
     USER_LOADED_FAIL,
     AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL,
-    LOGOUT
+    LOGOUT,
+    PASSWORD_RESET_SUCCESS,
+    PASSWORD_RESET_CONFIRM_FAIL,
+    PASSWORD_RESET_CONFIRM_SUCCESS,
+    PASSWORD_RESET_FAIL
 } from "../actions/types";
 
 const initialState = {
@@ -49,14 +53,21 @@ export default function (state = initialState, action) {
             }
         case LOGIN_FAIL:
         case LOGOUT:
-            localStorage.removeItem('access');
-            localStorage.removeItem('refresh');
+            localStorage.removeItem("access");
+            localStorage.removeItem("refresh");
             return {
                 ...state,
                 access: null,
                 refresh: null,
                 isAuthenticated: false,
                 user: null
+            }
+        case PASSWORD_RESET_SUCCESS:
+        case PASSWORD_RESET_CONFIRM_FAIL:
+        case PASSWORD_RESET_CONFIRM_SUCCESS:
+        case PASSWORD_RESET_FAIL:
+            return {
+                ...state
             }
         default:
             return state

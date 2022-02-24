@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/auth';
 
-const Navbar = (logout, isAuthenticated) => {
+const Navbar = ({ logout, isAuthenticated }) => {
 
     const guestLinks = () => (
         <Fragment>
@@ -18,7 +18,7 @@ const Navbar = (logout, isAuthenticated) => {
 
     const authLinks = () => (
         <li className="nav-item">
-            <a className="nav-link" href="" onClick={logout}>Logout</a>
+            <a className="nav-link" href="#!" onClick={logout}>Logout</a>
         </li>
     );
 
